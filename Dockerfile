@@ -20,6 +20,8 @@ COPY --from=builder /usr/local /usr/local
 
 COPY ./squid.conf /usr/local/etc/squid.conf
 
+RUN chown nobody:nobody /usr/local/var/logs
+
 RUN /usr/local/sbin/squid -v
 
 EXPOSE 8000
