@@ -18,14 +18,6 @@ FROM hsmtkk/openssl:1.1.1g
 
 COPY --from=builder /usr/local /usr/local
 
-COPY ./squid.conf /usr/local/etc/squid.conf
-COPY ./entrypoint.sh /entrypoint.sh
-
-RUN chown nobody:nobody /usr/local/var/logs \
- && chmod 755 /entrypoint.sh
-
 RUN /usr/local/sbin/squid -v
 
 EXPOSE 8000
-
-ENTRYPOINT ["/entrypoint.sh"]
