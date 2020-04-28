@@ -1,7 +1,7 @@
 FROM hsmtkk/openssl_docker:1.1.1g as builder
 
 RUN yum -y update \
- && yum install gcc gcc-c++ make perl
+ && yum -y install gcc gcc-c++ make perl
 
 WORKDIR /usr/local/src
 
