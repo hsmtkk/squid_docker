@@ -9,7 +9,7 @@ steps:
       username: hsmtkk
       password:
         from_secret: DOCKER_HUB_TOKEN
-      repo: hsmtkk/squid_docker
+      repo: hsmtkk/squid
       tags:
         - latest
         - 4.11
