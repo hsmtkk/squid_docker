@@ -1,4 +1,4 @@
-FROM hsmtkk/openssl_docker:1.1.1g as builder
+FROM hsmtkk/openssl:1.1.1g as builder
 
 RUN yum -y update \
  && yum -y install gcc gcc-c++ make perl
@@ -14,7 +14,7 @@ RUN curl -L -O http://www.squid-cache.org/Versions/v4/squid-4.11.tar.xz \
 
 RUN rm -rf /usr/local/src/*
  
-FROM hsmtkk/openssl_docker:1.1.1g
+FROM hsmtkk/openssl:1.1.1g
 
 COPY --from=builder /usr/local /usr/local
 
