@@ -17,5 +17,3 @@ FROM hsmtkk/openssl:1.1.1g
 COPY --from=builder /usr/local/squid /usr/local/squid
 
 RUN env LD_LIBRARY_PATH=/usr/local/openssl/lib /usr/local/squid/sbin/squid -v
-
-EXPOSE 8000
