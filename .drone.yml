@@ -7,7 +7,7 @@ steps:
     image: hadolint/hadolint:v1.18.0
     commands:
       - hadolint centos-7/Dockerfile
-      - hadolint centos_build-7/Dockerfile
+      - hadolint centos_devel-7/Dockerfile
       - hadolint openssl_build-1.1.1g/Dockerfile
       - hadolint squid_build-5.0.3/Dockerfile
       - hadolint squid-5.0.3/Dockerfile      
