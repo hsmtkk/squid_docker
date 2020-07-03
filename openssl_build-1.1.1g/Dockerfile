@@ -3,9 +3,11 @@ FROM hsmtkk/squid_docker:centos_devel-7
 WORKDIR /usr/local/src
 
 RUN curl -O https://www.openssl.org/source/openssl-1.1.1g.tar.gz \
- && tar fxz openssl-1.1.1g.tar.gz \
- && cd openssl-1.1.1g \
- && ./config --prefix=/usr/local/openssl shared \
+ && tar fxz openssl-1.1.1g.tar.gz
+
+WORKDIR /usr/local/src/openssl-1.1.1g
+
+RUN ./config --prefix=/usr/local/openssl shared \
  && make \
  && make install_sw
 
