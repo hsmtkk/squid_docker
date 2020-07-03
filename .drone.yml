@@ -14,6 +14,8 @@ steps:
 
   - name: centos-7
     image: plugins/docker
+    depends_on:
+      - lint
     settings:
       dockerfile: centos-7/Dockerfile
       username: hsmtkk
