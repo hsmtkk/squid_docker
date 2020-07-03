@@ -1,0 +1,80 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: lint
+    image: hadolint/hadolint:v1.18.0
+    commands:
+      - hadolint centos-7/Dockerfile
+      - hadolint centos_devel-7/Dockerfile
+      - hadolint openssl_build-1.1.1g/Dockerfile
+      - hadolint squid_build-5.0.3/Dockerfile
+      - hadolint squid-5.0.3/Dockerfile      
+
+  - name: centos-7
+    image: plugins/docker
+    depends_on:
+      - lint
+    settings:
+      dockerfile: centos-7/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/squid_docker
+      tags:
+        - centos-7
+
+  - name: centos_devel-7
+    image: plugins/docker
+    depends_on:
+      - centos-7
+    settings:
+      dockerfile: centos_devel-7/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/squid_docker
+      tags:
+        - centos_devel-7
+
+  - name: openssl_build-1.1.1g
+    image: plugins/docker
+    depends_on:
+      - centos_devel-7
+    settings:
+      dockerfile: openssl_build-1.1.1g/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/squid_docker
+      tags:
+        - openssl_build-1.1.1g
+
+  - name: squid_build-5.0.3
+    image: plugins/docker
+    depends_on:
+      - openssl_build-1.1.1g
+    settings:
+      dockerfile: squid_build-5.0.3/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/squid_docker
+      tags:
+        - squid_build-5.0.3
+
+  - name: squid-5.0.3
+    image: plugins/docker
+    depends_on:
+      - openssl_build-1.1.1g
+      - squid_build-5.0.3
+    settings:
+      dockerfile: squid-5.0.3/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/squid_docker
+      tags:
+        - latest
+        - squid-5.0.3
