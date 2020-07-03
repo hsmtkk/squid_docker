@@ -1,7 +1,11 @@
+FROM hsmtkk/squid_docker:openssl_build-1.1.1g as openssl
+
+FROM hsmtkk/squid_docker:squid_build-5.0.3 as squid
+
 FROM hsmtkk/squid_docker:centos-7
 
-COPY --from=hsmtkk/squid_docker:openssl_build-1.1.1g /usr/local/openssl /usr/local/openssl
-COPY --from=hsmtkk/squid_docker:squid_build-5.0.3 /usr/local/squid /usr/local/squid
+COPY --from=openssl /usr/local/openssl /usr/local/openssl
+COPY --from=squid /usr/local/squid /usr/local/squid
 
 RUN echo /usr/local/openssl/lib > /etc/ld.so.conf.d/openssl.conf \
  && ldconfig
