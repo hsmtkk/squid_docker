@@ -1,4 +1,4 @@
-FROM github.com/hsmtkk/squid_docker:openssl_build-1.1.1g
+FROM hsmtkk/squid_docker:openssl_build-1.1.1g
 
 WORKDIR /usr/local/src
 

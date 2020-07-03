@@ -1,4 +1,4 @@
-FROM github.com/hsmtkk/squid_docker:centos_devel-7
+FROM hsmtkk/squid_docker:centos_devel-7
 
 WORKDIR /usr/local/src
 
