@@ -5,7 +5,7 @@ WORKDIR /usr/local/src
 RUN curl -O http://www.squid-cache.org/Versions/v5/squid-5.0.3.tar.xz \
  && tar fx squid-5.0.3.tar.xz \
  && cd squid-5.0.3 \
- && ./configure --prefix=/usr/local/squid --enable-ssl-crtd --disable-optimization --with-openssl=/usr/local/openssl \
+ && ./configure --prefix=/usr/local/squid --enable-ssl-crtd --disable-optimizations --with-openssl=/usr/local/openssl \
  && make \
  && make install
 
