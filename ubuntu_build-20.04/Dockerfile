@@ -1,7 +1,8 @@
 FROM hsmtkk/squid_docker:ubuntu-20.04
 
 RUN apt-get -y update \
- && apt-get -y --no-install-recommends install build-essential=12.8ubuntu1 \
+ && apt-get -y --no-install-recommends install \
+ build-essential=12.8ubuntu1 \
  autoconf=2.69-11.1 \
  automake=1:1.16.1-4ubuntu6 \
  ca-certificates=20190110ubuntu1.1 \
