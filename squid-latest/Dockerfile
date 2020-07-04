@@ -2,7 +2,7 @@ FROM hsmtkk/squid_docker:openssl_build-1.1.1g as openssl
 
 FROM hsmtkk/squid_docker:squid_build-latest as squid
 
-FROM hsmtkk/squid_docker:centos-7
+FROM hsmtkk/squid_docker:ubuntu-20.04
 
 COPY --from=openssl /usr/local/openssl /usr/local/openssl
 COPY --from=squid /usr/local/squid /usr/local/squid
