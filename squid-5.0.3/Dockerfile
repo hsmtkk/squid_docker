@@ -10,6 +10,11 @@ COPY --from=squid /usr/local/squid /usr/local/squid
 RUN echo /usr/local/openssl/lib > /etc/ld.so.conf.d/openssl.conf \
  && ldconfig
 
+RUN apt-get -y update \
+ && apt-get -y --no-install-recommends install libltdl7=2.4.6-14 \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
 RUN /usr/local/squid/sbin/squid --version
 
 EXPOSE 3128
