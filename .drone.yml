@@ -91,4 +91,4 @@ steps:
         from_secret: docker_hub_token
       repo: hsmtkk/squid_docker
       tags:
-        - latest
+        - squid-latest
