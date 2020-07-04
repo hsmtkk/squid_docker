@@ -10,7 +10,9 @@ steps:
       - hadolint centos_devel-7/Dockerfile
       - hadolint openssl_build-1.1.1g/Dockerfile
       - hadolint squid_build-5.0.3/Dockerfile
+      - hadolint squid_build-latest/Dockerfile
       - hadolint squid-5.0.3/Dockerfile      
+      - hadolint squid-latest/Dockerfile      
 
   - name: centos-7
     image: plugins/docker
