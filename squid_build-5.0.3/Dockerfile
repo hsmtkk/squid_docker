@@ -12,3 +12,8 @@ RUN ./configure --prefix=/usr/local/squid --enable-ssl-crtd --disable-optimizati
  && make install
 
 RUN /usr/local/squid/sbin/squid --version
+
+WORKDIR /usr/local/src
+
+RUN rm -rf squid-5.0.3*
+

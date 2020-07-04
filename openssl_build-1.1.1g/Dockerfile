@@ -15,3 +15,8 @@ RUN echo /usr/local/openssl/lib > /etc/ld.so.conf.d/openssl.conf \
  && ldconfig
 
 RUN /usr/local/openssl/bin/openssl version
+
+WORKDIR /usr/local/src
+
+RUN rm -rf openssl-1.1.1g*
+
