@@ -4,7 +4,8 @@ RUN yum -y install ed which
 
 WORKDIR /usr/local/src
 
-RUN curl -L -O http://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
+RUN curl -L -O http://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz \
+ && tar fxz libtool-2.4.6.tar.gz
 
 WORKDIR /usr/local/src/libtool-2.4.6
  
