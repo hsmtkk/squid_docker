@@ -7,6 +7,7 @@ RUN apt-get -y update \
  ca-certificates=20190110ubuntu1.1 \
  curl=7.68.0-1ubuntu2.1 \
  ed=1.16-1 \ 
+ libltdl7=2.4.6-14 \
  libtool=2.4.6-14 \ 
  libtool-bin=2.4.6-14 \
  unzip=6.0-25ubuntu1 \
