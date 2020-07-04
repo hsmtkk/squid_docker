@@ -6,26 +6,12 @@ steps:
   - name: lint
     image: hadolint/hadolint:v1.18.0
     commands:
-      - hadolint ubuntu-20.04/Dockerfile
       - hadolint ubuntu_build-20.04/Dockerfile
       - hadolint openssl_build-1.1.1g/Dockerfile
       - hadolint squid_build-5.0.3/Dockerfile
       - hadolint squid_build-latest/Dockerfile
       - hadolint squid-5.0.3/Dockerfile      
       - hadolint squid-latest/Dockerfile      
-
-  - name: ubuntu-20.04
-    image: plugins/docker
-    depends_on:
-      - lint
-    settings:
-      dockerfile: ubuntu-20.04/Dockerfile
-      username: hsmtkk
-      password:
-        from_secret: docker_hub_token
-      repo: hsmtkk/squid_docker
-      tags:
-        - ubuntu-20.04
 
   - name: ubuntu_build-20.04
     image: plugins/docker

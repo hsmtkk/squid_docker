@@ -1,6 +1,7 @@
 FROM hsmtkk/squid_docker:ubuntu-20.04
 
-RUN apt-get -y --no-install-recommends install build-essential=12.8ubuntu1 \
+RUN apt-get -y update \
+ && apt-get -y --no-install-recommends install build-essential=12.8ubuntu1 \
  autoconf=2.69-11.1 \
  automake=1:1.16.1-4ubuntu6 \
  curl=7.68.0-1ubuntu2.1 \
