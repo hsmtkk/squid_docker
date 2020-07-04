@@ -15,8 +15,6 @@ steps:
 
   - name: ubuntu_build-20.04
     image: plugins/docker
-    depends_on:
-      - ubuntu-20.04
     settings:
       dockerfile: ubuntu_build-20.04/Dockerfile
       username: hsmtkk
