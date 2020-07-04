@@ -64,6 +64,19 @@ steps:
       tags:
         - squid_build-5.0.3
 
+  - name: squid_build-latest
+    image: plugins/docker
+    depends_on:
+      - openssl_build-1.1.1g
+    settings:
+      dockerfile: squid_build-latest/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/squid_docker
+      tags:
+        - squid_build-latest
+
   - name: squid-5.0.3
     image: plugins/docker
     depends_on:
@@ -76,5 +89,18 @@ steps:
         from_secret: docker_hub_token
       repo: hsmtkk/squid_docker
       tags:
-        - latest
         - squid-5.0.3
+
+  - name: squid-latest
+    image: plugins/docker
+    depends_on:
+      - openssl_build-1.1.1g
+      - squid_build-latest
+    settings:
+      dockerfile: squid-latest/Dockerfile
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/squid_docker
+      tags:
+        - latest
