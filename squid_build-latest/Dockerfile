@@ -25,6 +25,8 @@ RUN curl -L -O https://github.com/squid-cache/squid/archive/v5.zip \
 WORKDIR /usr/local/src/squid-5
 
 RUN ./bootstrap.sh \
+ && aclocal \
+ && autoreconf --force --install \
  && ./configure --prefix=/usr/local/squid --enable-ssl-crtd --disable-optimizations --with-openssl=/usr/local/openssl \
  && make \
  && make install
