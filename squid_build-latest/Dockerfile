@@ -1,6 +1,6 @@
 FROM hsmtkk/squid_docker:openssl_build-1.1.1g
 
-RUN apt -y install autoconf automake ed libtool libtool-bin unzip
+RUN apt-get -y install autoconf automake ed libtool libtool-bin unzip
 
 WORKDIR /usr/local/src
 
