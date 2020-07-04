@@ -1,7 +1,5 @@
 FROM hsmtkk/squid_docker:openssl_build-1.1.1g
 
-RUN apt-get -y install autoconf automake ed libtool libtool-bin unzip
-
 WORKDIR /usr/local/src
 
 RUN curl -L -O https://github.com/squid-cache/squid/archive/v5.zip \
