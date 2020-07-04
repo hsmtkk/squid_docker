@@ -15,6 +15,8 @@ steps:
 
   - name: ubuntu_build-20.04
     image: plugins/docker
+    depends_on:
+      - lint
     settings:
       dockerfile: ubuntu_build-20.04/Dockerfile
       username: hsmtkk
